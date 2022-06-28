@@ -1,13 +1,17 @@
 
 function averagePair(array, avg){
+   //working with ordered array
    array.sort((a, b) => a > b)
 
+   //creating pointers
    let left=0
    let right=array.length-1
-   let isNotFound=false
 
+   //loopping based on a condition
    while(true){
       let tempAvg = (array[left]+array[right])/2
+
+      //stopping my loop
       if(tempAvg === avg){
          console.log(`average pair found in: ${array[left]} and ${array[right]}`)
          return true
@@ -16,6 +20,8 @@ function averagePair(array, avg){
          console.log(`average not found`)
          return false
       }
+
+      //moving my pointers
       else if(tempAvg > avg) right-=1
       else if(tempAvg < avg) left+=1
    }
